@@ -1,0 +1,17 @@
+<launch>
+    <node name="lsn10" pkg="lsn10" type="lsn10" output="screen" >
+        <param name="scan_topic" value="scan"/>           #设置激光数据topic名称
+        <param name="frame_id" value="laser"/>       #激光坐标
+        <param name="serial_port" value="/dev/wheeltec_lidar"/>  #雷达连接的串口
+        <param name="versions" value="2" />               #雷达协议选择 1：230400波特率，2：460800波特率
+    </node>
+    
+    <!-- 镭神N10雷达参数 -->
+    <param name="/lsn10/truncated_mode" value="0"/>    <!--0:不使用过滤 1:使用过滤-->
+    <param name="/lsn10/min_distance" type="double" value="0"/> <!--最小扫描距离-->
+    <param name="/lsn10/max_distance" type="double" value="30"/> <!--最大扫描距离-->
+    <rosparam param="/lsn10/disable_min">[110]</rosparam> <!--角度左值-->
+    <rosparam param="/lsn10/disable_max">[250]</rosparam> <!--角度右值-->
+    <!-- 镭神N10雷达参数 -->
+
+</launch>
